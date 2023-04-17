@@ -1,6 +1,8 @@
-const { config } = require('dotenv');
-const { Pool } = require('pg');
-config();
+const { Pool } = require("pg");
+const dotenv = require("dotenv");
+
+
+dotenv.config();
 
 const pool = new Pool({
   user: process.env.PGUSER,
@@ -10,8 +12,10 @@ const pool = new Pool({
   port: process.env.PGPORT,
 });
 
+
+
 module.exports = {
-  path: './migrations',
-  driver: 'pg',
-  pool,
+  path: "./migrations",
+  driver: "pg",
+  pg: pool,
 };
